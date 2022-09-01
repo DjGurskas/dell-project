@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,8 +12,8 @@
 			border: 1px solid #000;
 		}
 		td{
-			width: 75px;
-			height: 75px;
+			width: 100px;
+			height: 100px;
 			border: 1px solid #ccc;
 			text-align: center;
 			vertical-align: center;
@@ -29,12 +29,39 @@
 			right: 2px;
 			color: #999;
 		}
+		.time{
+			font-size: 12px;
+			display: inline-block;
+		}
+		.time-available{
+			position: absolute;
+			color: green;
+			bottom: 2px;
+			left: 2px;
+		}
+		.time-occupied{
+			position: absolute;
+			color: red;
+			top: 2px;
+			left: 2px;
+		}
+		.margin {
+        	margin: 5px;
+      	}
 	</style>
 </head>
 <body>
 
-	<div id="seats"></div>
 
+	<div class="margin">
+		<label for="bookSeat">Reservar assento:</label>
+			<select name="bookSeat" id="bookSeat">
+			</select>
+			
+		<button onclick="occupySeat(bookSeat.value)">Ok</button>
+	</div>
+
+	<div id="seats"></div>
 
 	<script src="./sistema.js"></script>
 	
