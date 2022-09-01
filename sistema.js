@@ -4,13 +4,18 @@ const seatHeigth = 12
 const seatCount = 46
 
 function start(){
+	
+	// cria a array que vai representar a tabela de assentos
 	createTableStructure()
+
+	// quebra a array nas dimensões definidas em seatWidth e seatHeigth
+	// e mostra os dados na tabela
 	renderSeats()
 
-	// occupy 30% of seats
+	// ocupa 30% dos assentos
 	occupySeats()
 
-	//
+	// atualiza as listas com os assentos disponíveis
 	populateLists()
 }
 
@@ -23,15 +28,14 @@ function createTableStructure(){
 function renderSeats(){
 	let html = '<table cellpadding=0 cellspacing=0>'
 
-	for(let row = 0; row < seatHeigth; row++){
+	for(let row = 0; row < seatHeigth; row++){	// quebra as linhas
 		html += '<tr>'
 
-		for(let column = 0; column < seatWidth; column++){
+		for(let column = 0; column < seatWidth; column++){	// quebra as colunas
 			html += '<td>'
 
 			const pixelIndex = column + (seatWidth * row)
 			if(pixelIndex < seatCount){
-				
 				html += `<div class="pixel-index">Assento ${pixelIndex+1}</div>`
 
 				let s = seatArray.find(x => x.index == pixelIndex)
@@ -58,12 +62,12 @@ function renderSeats(){
 }
 
 function occupySeats(){
-	const seatsToOccupy = Math.round(seatCount * 0.3)
+	const seatsToOccupy = Math.round(seatCount * 0.3)	// 30% dos assentos
 	for(let i = 0; i < seatsToOccupy; i++){
 		let s = seatArray.find(x => x.index == i)
 		let route
 		
-		if(i < seatsToOccupy / 2)
+		if(i < seatsToOccupy / 2)	// metade em cada rota
 			route = routes[0]
 		else
 			route = routes[1]
@@ -72,10 +76,10 @@ function occupySeats(){
 		s.route = route.route
 	}
 
-	renderSeats()
+	renderSeats()	// atualiza a tabela
 }
 
-function occupySeat(index){
+function occupySeat(index){	// reserva o assento
 	let s = seatArray.find(x => x.index == index)
 	s.route = routes[0].route
 	s.time = routes[0].time[0]
