@@ -1,2 +1,2 @@
 # Projeto-IT
-Exercício técnico
+Exercício técnico da Dell
