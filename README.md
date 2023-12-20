@@ -1,2 +1,2 @@
 # Projeto-IT
-Exercício técnico da Dell
+Desenvolver um sistema de compras e reservas de passagem de ônibus.
